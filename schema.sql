@@ -1,13 +1,9 @@
-DROP TABLE IF EXISTS families;
-
-CREATE TABLE families (
+CREATE TABLE IF NOT EXISTS families (
     family_id serial PRIMARY KEY,
     name TEXT NOT NULL
 );
 
-DROP TABLE IF EXISTS users;
-
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id serial PRIMARY KEY,
     username TEXT NOT NULL UNIQUE,
     password_hash TEXT NOT NULL

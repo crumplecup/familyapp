@@ -3,16 +3,27 @@ name = "familyapp"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "familyapp"
+
 [dependencies]
 anyhow = "1.0.75"
 axum = "0.6.18"
+dotenvy = "0.15.7"
+getrandom = { version = "0.2.10", features = ["js"] }
 shuttle-axum = "0.25.0"
 shuttle-runtime = "0.25.0"
 shuttle-secrets = "0.25.0"
-shuttle-service = "0.25.0"
+shuttle-service = { version = "0.25.0", features = ["tokio"] }
 shuttle-shared-db = { version = "0.25.0", features = ["postgres-rustls", "sqlx"] }
 shuttle-static-folder = "0.25.0"
 sqlx = { version = "0.7.1", features = ["postgres", "runtime-tokio-rustls"] }
 tera = "1.19.0"
-tokio = "1.28.2"
-tower-http = { version = "0.4.4", features = ["fs"] }
+thiserror = "1.0.48"
+tokio = { version = "1.28.2", features = ["fs", "tracing"] }
+tower-http = { version = "0.4.4", features = ["fs", "tokio", "tracing"] }
+tracing = "0.1.37"
